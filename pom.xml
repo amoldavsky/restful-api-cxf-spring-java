@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.projectx</groupId>
+	<artifactId>projectx</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<app.version>1.0-SNAPSHOT</app.version>
+		<spring.version>4.1.6.RELEASE</spring.version>
+		<spring.data.commons.version>1.4.1.RELEASE</spring.data.commons.version>
+		<spring.data.coomons.mongodb.version>1.8.1.RELEASE</spring.data.coomons.mongodb.version>
+		<servlet.version>3.1.0</servlet.version>
+		<java.version>1.8</java.version>
+		<jackson.version>2.6.4</jackson.version>
+		<maven.plugin.compiler.version>2.5.1</maven.plugin.compiler.version>
+		<spring.version>4.2.3.RELEASE</spring.version>
+		<sysnet.version>1.0.2</sysnet.version>
+		<apache.poi.version>3.13</apache.poi.version>
+		<javax.servlet.version>3.0.1</javax.servlet.version>
+		<javax.jstl.version>1.2</javax.jstl.version>
+		<javax.jstl.api.version>1.2.1</javax.jstl.api.version>
+		<javax.persistence.version>1.0.2</javax.persistence.version>
+		<javax.mail.version>1.5.4</javax.mail.version>
+		<apache.commons.fileupload.version>1.3.1</apache.commons.fileupload.version>
+		<apache.commons.lang.version>2.6</apache.commons.lang.version>
+		<apache.commons.codec.version>1.10</apache.commons.codec.version>
+		<apache.commons.io.version>2.4</apache.commons.io.version>
+		<apache.axis.version>1.4</apache.axis.version>
+		<apache.xerces.version>2.11.0</apache.xerces.version>
+		<apache.log4j.version>2.4.1</apache.log4j.version>
+		<google.guava.version>18.0</google.guava.version>
+		<slf4j.version>1.7.13</slf4j.version>
+		<junit.version>4.12</junit.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<!-- must be on the classpath -->
+			<groupId>org.jacoco</groupId>
+			<artifactId>org.jacoco.agent</artifactId>
+			<classifier>runtime</classifier>
+			<version>0.6.3.201306030806</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>central-repository</id>
+			<url>https://repo1.maven.org/maven2/</url>
+		</repository>
+		<repository>
+	      <id>java.net</id>
+	      <url>https://maven.java.net/content/repositories/public/</url>
+	    </repository>
+		<repository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</repository>
+		<repository>
+			<id>farmdawgnation-paypal-mvn-repo</id>
+			<url>https://raw.github.com/farmdawgnation/paypal-java-mvn/master/releases</url>
+    	</repository>
+		<repository>
+			<id>apache-snapshots</id>
+			<name>Apache SNAPSHOT Repository</name>
+			<url>http://repository.apache.org/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-releases</id>
+			<url>https://repo.spring.io/libs-release</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>sonatype-oss-public</id>
+			<url>https://oss.sonatype.org/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>apache-snapshots</id>
+			<name>Apache SNAPSHOT Repository</name>
+			<url>http://repository.apache.org/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	
+	<distributionManagement>
+        <repository>
+            <id>wso2-maven2-repository</id>
+            <name>WSO2 Maven2 Repository</name>
+            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>wso2-maven2-snapshot-repository</id>
+            <name>WSO2 Maven2 Snapshot Repository</name>
+            <url>scp://dist.wso2.org/home/httpd/dist.wso2.org/snapshots/maven2/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+	<build>
+	  <plugins>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.3</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+	   </plugins>
+	</build>
+
+	<modules>
+		<module>sdk</module>
+		<module>logic</module>
+		<module>web</module>
+	</modules>
+</project>
