@@ -1,9 +1,7 @@
 package com.projectx.logic.api.service.impl;
 
 import java.util.Date;
-import java.util.List;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.projectx.logic.api.dao.UserDAO;
 import com.projectx.logic.api.data.User;
 import com.projectx.logic.api.service.UserService;
-import com.projetx.sdk.user.impl.BasicUser;
 
 /**
  * 

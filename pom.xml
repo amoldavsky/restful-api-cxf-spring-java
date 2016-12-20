@@ -72,6 +72,10 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<repository> <!-- this is used to load dependencies from GitHub repos -->
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
 	</repositories>
 
 	<pluginRepositories>
@@ -126,8 +130,7 @@
 	</build>
 
 	<modules>
-		<module>sdk</module>
 		<module>logic</module>
-		<module>web</module>
+		<module>web-api</module>
 	</modules>
 </project>

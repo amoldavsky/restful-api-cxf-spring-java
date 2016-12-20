@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>web-api</artifactId>
 	<packaging>war</packaging>
-	<name>api</name>
+	<name>web-api</name>
 
 	<properties>
 		<!--  default dependency version overrides -->
@@ -136,11 +136,16 @@
 			<version>${apache.log4j.version}</version>
 		</dependency>
 		
-		<dependency>
+		<!--<dependency>
 			<groupId>com.projectx.sdk</groupId>
     		<artifactId>sdk-java</artifactId>
     		<version>${project.version}</version>
-    	</dependency>
+    	</dependency>-->
+		<dependency>
+			<groupId>com.github.amoldavsky</groupId>
+			<artifactId>restful-api-sdk-java</artifactId>
+			<version>master</version>
+		</dependency>
 		<dependency>
 			<groupId>com.projectx.logic</groupId>
     		<artifactId>api</artifactId>
