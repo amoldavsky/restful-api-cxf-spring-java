@@ -1,4 +1,4 @@
-package com.projectx.web.api.searvice;
+package com.projectx.web.api.service;
 
 import java.util.Date;
 import java.util.Random;
@@ -21,7 +21,6 @@ import org.powermock.modules.junit4.PowerMockRunnerDelegate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.projectx.logic.api.service.UserService;
-import com.projectx.web.api.service.UserRest;
 import com.projectx.web.api.service.impl.UserRestImpl;
 import com.projectx.web.api.test.config.spring.AppTestConfig;
 import com.projectx.web.api.test.config.spring.ConfigTestUtils;

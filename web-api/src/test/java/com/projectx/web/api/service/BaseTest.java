@@ -1,4 +1,4 @@
-package com.projectx.web.api.searvice;
+package com.projectx.web.api.service;
 
 import org.apache.catalina.core.ApplicationContext;
 import org.junit.Ignore;

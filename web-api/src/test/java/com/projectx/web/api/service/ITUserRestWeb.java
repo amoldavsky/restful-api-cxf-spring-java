@@ -1,25 +1,4 @@
-package com.projectx.web.api.searvice;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
-
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import org.apache.catalina.core.AprLifecycleListener;
-import org.apache.catalina.core.StandardContext;
-import org.apache.catalina.core.StandardServer;
-import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.webresources.DirResourceSet;
-import org.apache.catalina.webresources.StandardRoot;
-import org.apache.catalina.WebResourceRoot;
+package com.projectx.web.api.service;
 
 
 public class ITUserRestWeb {

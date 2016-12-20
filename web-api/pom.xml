@@ -224,7 +224,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>api</finalName>
+		<finalName>web-api</finalName>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<resources>
 			<resource>
