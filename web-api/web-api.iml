@@ -69,7 +69,7 @@
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.4.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.4.1" level="project" />
-    <orderEntry type="library" name="Maven: com.github.amoldavsky:restful-api-sdk-java:master" level="project" />
+    <orderEntry type="library" name="Maven: com.github.amoldavsky:restful-api-sdk-java:master-ba4f9f0739-1" level="project" />
     <orderEntry type="module" module-name="api" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.2.3.RELEASE" level="project" />

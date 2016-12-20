@@ -144,7 +144,7 @@
 		<dependency>
 			<groupId>com.github.amoldavsky</groupId>
 			<artifactId>restful-api-sdk-java</artifactId>
-			<version>master</version>
+			<version>master-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.projectx.logic</groupId>
