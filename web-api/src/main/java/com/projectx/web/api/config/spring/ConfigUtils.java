@@ -1,4 +1,4 @@
-package com.projectx.web.api.test.config.spring;
+package com.projectx.web.api.config.spring;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,17 +12,15 @@ import org.springframework.context.annotation.ClassPathScanningCandidateComponen
 import org.springframework.core.type.filter.AnnotationTypeFilter;
 import org.springframework.stereotype.Service;
 
-import com.projectx.web.api.config.spring.ConfigUtils;
-
 /**
  * Configuration helper class
  * 
  * @author Assaf Moldavsky
  *
  */
-@Service("ConfigUTesttils")
+@Service("com.projetx.web.api.config.ConfigUtils")
 @SuppressWarnings({ "unchecked", "rawtypes" })
-public class ConfigTestUtils {
+public class ConfigUtils {
 
 	private static final Log LOG = LogFactory.getLog(ConfigUtils.class);
 
@@ -39,7 +37,7 @@ public class ConfigTestUtils {
 	/**
 	 * Base CXF services package
 	 */
-	private static final String BASE_PACKAGE = "com.projectx.web.api.service";
+	private static final String BASE_PACKAGE = "com.projetx.web.api.service";
 
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -58,7 +56,7 @@ public class ConfigTestUtils {
 		return beanList;
 	}
 
-	public List<Class> findClasses( Class annotation ) {
+	public List<Class> findClass( Class annotation ) {
 		ClassPathScanningCandidateComponentProvider scanner = new ClassPathScanningCandidateComponentProvider(false);
 		scanner.addIncludeFilter(new AnnotationTypeFilter(annotation));
 		
@@ -88,6 +86,6 @@ public class ConfigTestUtils {
 		int indexStart = classeName.indexOf('.', BASE_PACKAGE.length() + 1);
 		int indexEnd = classeName.indexOf('.', classeName.lastIndexOf('.') - ".dl.dto".length());
 
-		return classeName.substring(indexStart + 1, indexEnd).replace(".", "/");
+		return classeName.substring(indexStart + 1, indexEnd).replace("", "/");
 	}
 }

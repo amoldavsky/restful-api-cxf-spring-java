@@ -2,8 +2,6 @@ package com.projectx.web.api.test.config.spring;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import com.projectx.web.api.config.spring.WebInitializer;
-
 public class WebTestInitializer extends AbstractAnnotationConfigDispatcherServletInitializer { //extends WebInitializer {
 
 	@Override

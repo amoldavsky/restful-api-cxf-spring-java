@@ -5,11 +5,9 @@ import java.util.List;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-import javax.ws.rs.ext.RuntimeDelegate;
 
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
-import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.bus.spring.SpringBusFactory;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
@@ -22,7 +20,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.projectx.web.api.service.JaxrsService;
-import com.projectx.web.api.service.impl.UserRestImpl;
 
 @Configuration
 @EnableTransactionManagement

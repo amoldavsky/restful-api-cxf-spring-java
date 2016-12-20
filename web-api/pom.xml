@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.projectx.web</groupId>
-		<artifactId>apps</artifactId>
+		<groupId>com.projectx</groupId>
+		<artifactId>projectx</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>web-api</artifactId>
@@ -19,11 +19,6 @@
 	</properties>
 
 	<dependencies>
-		<dependency>
-		   <groupId>org.apache.tomcat.embed</groupId>
-		   <artifactId>tomcat-embed-core</artifactId>
-		   <version>8.0.30</version>
-		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -66,17 +61,12 @@
 			<version>${spring.data.commons.version}</version>
 		</dependency>
 		 -->
-		
+
 		<dependency>
             <groupId>org.apache.cxf</groupId>
             <artifactId>cxf-rt-frontend-jaxrs</artifactId>
             <version>${apache.cxf.version}</version>
         </dependency>
-        <dependency>
-			<groupId>org.apache.cxf</groupId>
-			<artifactId>cxf-rt-frontend-jaxws</artifactId>
-			<version>${apache.cxf.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
@@ -172,6 +162,12 @@
 			<scope>test</scope>
 		</dependency>
 		-->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>8.0.30</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 		   <groupId>org.apache.cxf</groupId>
 		   <artifactId>cxf-rt-transports-local</artifactId>
