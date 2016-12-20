@@ -1,4 +1,4 @@
-package com.projectx.web.api.service;
+package com.projectx.web.api.service.rest;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -3,10 +3,12 @@ package com.projectx.web.api.config.spring;
 
 import java.util.List;
 
+import com.projectx.web.api.service.rest.JaxrsService;
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +16,6 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-import com.projectx.web.api.service.JaxrsService;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -29,7 +30,7 @@ public class CxfConfig {
 	
 	@Autowired
 	private SpringBus springBus;
-	@Autowired
+	@Autowired @Qualifier("com.projectx.web.api.config.ConfigUtils")
 	private ConfigUtils configUtil;
 	
 	@ApplicationPath(value = "/")

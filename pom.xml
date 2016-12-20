@@ -130,6 +130,7 @@
 	</build>
 
 	<modules>
+		<module>util</module>
 		<module>logic</module>
 		<module>web-api</module>
 	</modules>

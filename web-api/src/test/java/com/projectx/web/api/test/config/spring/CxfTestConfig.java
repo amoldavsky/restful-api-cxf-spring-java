@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import com.projectx.web.api.service.rest.JaxrsService;
 import org.apache.cxf.Bus;
 import org.apache.cxf.BusFactory;
 import org.apache.cxf.bus.spring.SpringBusFactory;
@@ -19,7 +20,6 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-import com.projectx.web.api.service.JaxrsService;
 
 @Configuration
 @EnableTransactionManagement

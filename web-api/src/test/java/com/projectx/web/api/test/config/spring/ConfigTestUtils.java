@@ -20,7 +20,7 @@ import com.projectx.web.api.config.spring.ConfigUtils;
  * @author Assaf Moldavsky
  *
  */
-@Service("ConfigUTesttils")
+@Service("ConfigTestUtils")
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class ConfigTestUtils {
 

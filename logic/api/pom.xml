@@ -104,6 +104,11 @@
 			<artifactId>restful-api-sdk-java</artifactId>
 			<version>master-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.projectx</groupId>
+			<artifactId>util</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 		
 		<!-- Test Dependencies -->	
         <dependency>

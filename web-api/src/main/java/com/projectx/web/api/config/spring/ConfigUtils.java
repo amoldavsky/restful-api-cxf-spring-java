@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
  * @author Assaf Moldavsky
  *
  */
-@Service("com.projetx.web.api.config.ConfigUtils")
+@Service( "com.projectx.web.api.config.ConfigUtils" )
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class ConfigUtils {
 
