@@ -1,0 +1,71 @@
+{
+  "configuration":{
+    "name":"Default",
+    "properties":{
+      "property":[
+        {
+          "name": "log.path",
+          "value": "${sys:app.logs.root}"
+        },
+        {
+          "name": "log.archive.path",
+          "value": "${sys:app.logs.root}/archive"
+        },
+        {
+          "name": "log.filename",
+          "value": "kur8or.log"
+        }
+      ]
+    },
+    "appenders":{
+      "Console":{
+        "name":"Console-Appender",
+        "target":"SYSTEM_OUT",
+        "PatternLayout":{
+          "pattern":"[%-5level] %d{yyyy-MM-dd HH:mm:ss} [%t] %c{1} - %M - %msg%n"
+        }
+      },
+      "RollingFile":{
+        "name": "RollingFile-Appender",
+        "fileName": "${log.path}/${log.filename}",
+        "filePattern": "${log.archive.path}/${log.filename}-%d{MM-dd-yy}",
+        "PatternLayout":{
+          "pattern":"[%-5level] %d{yyyy-MM-dd HH:mm:ss} [%t] %c{1} - %M - %msg%n"
+        },
+        "Policies": {
+          "TimeBasedTriggeringPolicy": {
+            "interval": "24",
+            "modulate": "true"
+          }
+        }
+      }
+    },
+    "loggers": {
+      "logger": {
+        "name": "com.projectx.web.api",
+        "level": "debug",
+        "appender-ref":[
+          {
+            "ref": "RollingFile-Appender",
+            "level": "error"
+          },
+          {
+            "ref": "RollingFile-Appender",
+            "level": "info"
+          },
+          {
+            "ref": "RollingFile-Appender",
+            "level": "debug"
+          }
+        ]
+      },
+      "root":{
+        "level": "info",
+        "appender-ref": [
+          { "ref": "Console-Appender" },
+          { "ref": "RollingFile-Appender" }
+        ]
+      }
+    }
+  }
+}
