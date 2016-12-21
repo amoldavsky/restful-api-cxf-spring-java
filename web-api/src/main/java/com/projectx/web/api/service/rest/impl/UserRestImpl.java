@@ -315,7 +315,7 @@ public class UserRestImpl implements UserRest {
 	}
 
 	@Override
-	public ApiResponse<User> updateUser( String userIdStr, User user ) {
+	public ApiResponse<User> updateUser( String userIdStr, UserDTO user ) {
 
 		if( userIdStr == null || StringUtils.isEmpty( userIdStr ) ) {
 			return new ApiResponse<User>( ApiResponse.FAILURE, "user id is required, got id = " + userIdStr, null );
@@ -337,7 +337,7 @@ public class UserRestImpl implements UserRest {
 
 		ValueResponse<com.projectx.logic.api.data.User> userResp = null;
 		try {
-			userResp = userService.updateUser((com.projectx.logic.api.data.User) user);
+			userResp = userService.updateUser( UserUtils.transformUser( user ) );
 		} catch( IllegalArgumentException iae ) {
 			return new ApiResponse<>( ApiResponse.FAILURE, iae.getMessage(), null );
 		} catch( Throwable t ) {

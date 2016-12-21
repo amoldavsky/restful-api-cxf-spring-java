@@ -78,7 +78,7 @@ public interface UserRest {
     @PUT
     @Consumes({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, })
     @Produces( MediaType.APPLICATION_JSON )
-    public ApiResponse<User> updateUser( @PathParam("userId") String userId, User user );
+    public ApiResponse<User> updateUser( @PathParam("userId") String userId, UserDTO user );
 
     @Path("/user/{userId}")
     @DELETE
