@@ -146,15 +146,15 @@ public class UserRestTest extends BaseTest {
 
 		webClient.path( "/user/" + testUserId );
 
-		com.projectx.sdk.user.User reponseUser = null;
+		BasicUser reponseUser = null;
 
 		try {
 
 			String response = webClient.get( String.class );
 			System.out.println( "testGetUserValidId: " + ( "'/user/" + testUserId + "' ") + "response: " + response );
-			ApiResponse<com.projectx.sdk.user.User> apiResponse = objectMapper.readValue(
+			ApiResponse<BasicUser> apiResponse = objectMapper.readValue(
 					response,
-					objectMapper.getTypeFactory().constructType( new TypeReference<ApiResponse<User>>(){} )
+					objectMapper.getTypeFactory().constructType( new TypeReference<ApiResponse<BasicUser>>(){} )
 			);
 
 			reponseUser = apiResponse.getData();
@@ -177,13 +177,13 @@ public class UserRestTest extends BaseTest {
 	public void testGetUserInvalidIdNegative() {
 		//Mockito.doReturn( null ).when( userService ).getUser( 11 );
 
-		com.projectx.sdk.user.User reponseUser = null;
+		BasicUser reponseUser = null;
 
 		// test for a negative int
 		Integer testUserId = -1;
 		webClient.path( "/user/" + testUserId );
 
-		ApiResponse<User> apiResponse = webClient.get( new GenericType<ApiResponse<User>>(){} );
+		ApiResponse<BasicUser> apiResponse = webClient.get( new GenericType<ApiResponse<BasicUser>>(){} );
 
 		if( apiResponse.isSuccess() ) {
 			fail( "was able to call /user/" + testUserId );
@@ -198,14 +198,14 @@ public class UserRestTest extends BaseTest {
 	@Test
 	public void testGetUserInvalidIdAlphanumeric() {
 
-		com.projectx.sdk.user.User reponseUser = null;
+		BasicUser reponseUser = null;
 
 		// test a latter in the id
 		String badUserId = "123abc";
 		webClient.path( "/user/" + badUserId );
 
 
-		ApiResponse<User> apiResponse = webClient.get( new GenericType<ApiResponse<User>>(){} );
+		ApiResponse<BasicUser> apiResponse = webClient.get( new GenericType<ApiResponse<BasicUser>>(){} );
 
 		if( apiResponse.isSuccess() ) {
 			fail( "was able to call /user/" + badUserId );
@@ -221,7 +221,7 @@ public class UserRestTest extends BaseTest {
 		newUser.setId( null );
 
 		webClient.path( "/user" );
-		com.projectx.sdk.user.User reponseUser = null;
+		BasicUser reponseUser = null;
 
 		try {
 
@@ -231,9 +231,9 @@ public class UserRestTest extends BaseTest {
 			Response response = webClient.type( MediaType.APPLICATION_JSON ).post( newUser );
 			String responseStr = response.readEntity( String.class );
 
-			ApiResponse<com.projectx.sdk.user.User> apiResponse = objectMapper.readValue(
+			ApiResponse<BasicUser> apiResponse = objectMapper.readValue(
 					responseStr,
-					objectMapper.getTypeFactory().constructType( new TypeReference<ApiResponse<User>>(){} )
+					objectMapper.getTypeFactory().constructType( new TypeReference<ApiResponse<BasicUser>>(){} )
 			);
 
 			System.out.println( "testCreateUser: /user endpoint response: " + responseStr );
@@ -262,10 +262,10 @@ public class UserRestTest extends BaseTest {
 		String apiUrl = "/user/" + aUser.getId();
 
 		webClient.path( apiUrl );
-		com.projectx.sdk.user.User initialUser = null;
+		BasicUser initialUser = null;
 
 		System.out.println( "testUpdateUser: GET request to " + apiUrl );
-		ApiResponse<com.projectx.sdk.user.User> apiResponse = webClient.get( new GenericType<ApiResponse<com.projectx.sdk.user.User>>(){} );
+		ApiResponse<BasicUser> apiResponse = webClient.get( new GenericType<ApiResponse<BasicUser>>(){} );
 
 		initialUser = apiResponse.getData();
 		System.out.println( "testUpdateUser: " + apiUrl + " response: " + initialUser.toString() );
@@ -274,17 +274,17 @@ public class UserRestTest extends BaseTest {
 
 		apiUrl = "/user/" + initialUser.getId();
 		webClient.reset().path( apiUrl );
-		com.projectx.sdk.user.User updatedUser = null;
+		BasicUser updatedUser = null;
 		String newFirstNAme = "a cool new name";
 
 		try {
 
 			// copy the initialUSer object into a new User object
-			com.projectx.sdk.user.User tempUSer = new BasicUser( initialUser );
+			BasicUser tempUSer = new BasicUser( initialUser );
 			tempUSer.setFirstName( newFirstNAme );
 
 			System.out.println( "testUpdateUser: PUT request to " + apiUrl );
-			ApiResponse<com.projectx.sdk.user.User> apiCheckResponse = webClient.type( MediaType.APPLICATION_JSON ).put( tempUSer, new GenericType<ApiResponse<com.projectx.sdk.user.User>>(){} );
+			ApiResponse<BasicUser> apiCheckResponse = webClient.type( MediaType.APPLICATION_JSON ).put( tempUSer, new GenericType<ApiResponse<BasicUser>>(){} );
 
 			updatedUser = apiCheckResponse.getData();
 			System.out.println( "testUpdateUser: " + apiUrl + " response: " + apiCheckResponse.toString() );
@@ -316,7 +316,7 @@ public class UserRestTest extends BaseTest {
 
 		webClient.path( "/user/" + aUser.getId() );
 
-		com.projectx.sdk.user.User reponseUser = null;
+		BasicUser reponseUser = null;
 
 		try {
 
@@ -368,8 +368,7 @@ public class UserRestTest extends BaseTest {
 		webClient.path( apiUrl );
 		webClient.query( "id", userIds );
 
-
-		List<com.projectx.sdk.user.impl.BasicUser> reponseUsers = null;
+		List<BasicUser> reponseUsers = null;
 
 		try {
 
@@ -377,7 +376,7 @@ public class UserRestTest extends BaseTest {
 			String reponseUsersString = webClient.get( String.class );
 			ApiResponse<List<com.projectx.sdk.user.impl.BasicUser>> apiResponse = objectMapper.readValue(
 					reponseUsersString,
-					objectMapper.getTypeFactory().constructType( new TypeReference<ApiResponse<List<com.projectx.sdk.user.impl.BasicUser>>>(){} )
+					objectMapper.getTypeFactory().constructType( new TypeReference<ApiResponse<List<BasicUser>>>(){} )
 			);
 			reponseUsers = apiResponse.getData();
 			System.out.println( "testGetMulitpleUsers: " + apiUrl + " response: " + reponseUsersString );

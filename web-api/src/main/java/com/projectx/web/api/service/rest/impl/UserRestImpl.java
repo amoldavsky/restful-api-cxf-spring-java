@@ -90,7 +90,7 @@ public class UserRestImpl implements UserRest {
 		Integer userId = null;
 
 		try {
-
+			// TODO: use RestUtils instead
 			userId = Integer.valueOf( userIdParam );
 
 		} catch( NumberFormatException nee ) {
