@@ -41,7 +41,7 @@ public class AES {
     public String encrypt( String plainText ) throws Exception {
     	
         Cipher cipher = getCipher( Cipher.ENCRYPT_MODE );
-        byte[] encryptedBytes = cipher.doFinal( plainText.getBytes() );
+        byte[] encryptedBytes = cipher.doFinal( plainText.getBytes( "UTF-8" ) );
 
         return Base64.encodeBase64String( encryptedBytes );
         
@@ -58,8 +58,7 @@ public class AES {
 
     private Cipher getCipher( int cipherMode ) throws Exception {
     	
-        
-        SecretKeySpec keySpecification = new SecretKeySpec(
+        final SecretKeySpec keySpecification = new SecretKeySpec(
                 encryptionKey.getBytes("UTF-8"), 
                 encryptionKeySpecAlgorithm
         );

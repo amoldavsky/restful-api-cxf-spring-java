@@ -57,7 +57,10 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
 		loader = AnnotationConfigContextLoader.class,
 		classes = { UserRestTest.class, AppTestConfig.class }
 )
-@PowerMockIgnore( {"javax.management.*"})
+@PowerMockIgnore({
+		"javax.management.*",
+		"javax.crypto.*"
+})
 @WebAppConfiguration
 //@BootstrapWith(WebTestContextBootstrapper.class)
 public class UserRestTest extends BaseTest {
