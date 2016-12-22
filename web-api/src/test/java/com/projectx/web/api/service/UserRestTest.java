@@ -293,6 +293,7 @@ public class UserRestTest extends BaseTest {
 		}
 
 		assertNotNull( initialUser );
+		initialUser.setEmail( aUser.getEmail() );
 
 		webClient = createWebClient().path( apiUrl );
 
@@ -331,7 +332,8 @@ public class UserRestTest extends BaseTest {
 
 		assertEquals( initialUser.getDateCreated(), updatedUser.getDateCreated() );
 		assertEquals( initialUser.getLastName(), updatedUser.getLastName() );
-		assertEquals( initialUser.getEmail(), updatedUser.getEmail() );
+		// we do not expose email
+		// assertEquals( initialUser.getEmail(), updatedUser.getEmail() );
 		assertEquals( initialUser.getId(), updatedUser.getId() );
 
 	}

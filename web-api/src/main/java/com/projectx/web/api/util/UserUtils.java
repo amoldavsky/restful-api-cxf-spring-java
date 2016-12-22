@@ -20,7 +20,7 @@ public class UserUtils {
 		apiUser.setUsername( userDTO.getUsername() );
 		apiUser.setFirstName( userDTO.getFirstName() );
 		apiUser.setLastName( userDTO.getLastName() );
-		apiUser.setEmail( apiUser.getEmail() );
+		apiUser.setEmail( userDTO.getEmail() );
 		apiUser.setDateCreated( userDTO.getDateCreated() );
 
 		return apiUser;

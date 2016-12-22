@@ -344,6 +344,7 @@ public class UserRestImpl implements UserRest {
 			t.printStackTrace();
 		}
 
+		// TODO: when an email change error has occired let it fall through, we do not care!
 		if( userResp.isFailure() || userResp.getValue() == null ) {
 
 			return new ApiResponse<>( ApiResponse.FAILURE, userResp.getMessage(), null );
