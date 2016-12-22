@@ -338,8 +338,7 @@ public class UserRestTest extends BaseTest {
 
 	}
 
-//	@Test
-	// TODO
+	@Test
 	public void test_update_email_cahnge() {
 
 		User aUser = createDummyAPIUser();
@@ -373,6 +372,7 @@ public class UserRestTest extends BaseTest {
 		}
 
 		assertNotNull( initialUser );
+		initialUser.setEmail( aUser.getEmail() );
 
 		webClient = createWebClient().path( apiUrl );
 
@@ -384,6 +384,7 @@ public class UserRestTest extends BaseTest {
 			// copy the initialUSer object into a new User object
 			BasicUser tempUSer = new BasicUser( initialUser );
 			tempUSer.setFirstName( newFirstNAme );
+			tempUSer.setEmail( "blablabla@example.com" );
 
 			System.out.println( "testUpdateUser: PUT request to " + apiUrl );
 			Response response = webClient.type( MediaType.APPLICATION_JSON ).put( tempUSer, Response.class );
@@ -411,7 +412,6 @@ public class UserRestTest extends BaseTest {
 
 		assertEquals( initialUser.getDateCreated(), updatedUser.getDateCreated() );
 		assertEquals( initialUser.getLastName(), updatedUser.getLastName() );
-		assertEquals( initialUser.getEmail(), updatedUser.getEmail() );
 		assertEquals( initialUser.getId(), updatedUser.getId() );
 
 	}

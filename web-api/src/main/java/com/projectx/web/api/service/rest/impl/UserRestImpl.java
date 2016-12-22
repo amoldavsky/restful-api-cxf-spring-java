@@ -10,6 +10,7 @@ import javax.ws.rs.core.SecurityContext;
 
 import com.google.common.base.Joiner;
 
+import com.projectx.logic.api.service.validation.UserError;
 import com.projectx.web.api.data.SearchDTO;
 import com.projectx.web.api.data.UserDTO;
 //import com.projectx.web.api.manager.UserManager;
@@ -318,10 +319,10 @@ public class UserRestImpl implements UserRest {
 	public ApiResponse<User> updateUser( String userIdStr, UserDTO user ) {
 
 		if( userIdStr == null || StringUtils.isEmpty( userIdStr ) ) {
-			return new ApiResponse<User>( ApiResponse.FAILURE, "user id is required, got id = " + userIdStr, null );
+			return new ApiResponse<>( ApiResponse.FAILURE, "user id is required, got id = " + userIdStr, null );
 		}
 		if( user == null ) {
-			return new ApiResponse<User>( ApiResponse.FAILURE, "user is required, got user = " + user, null );
+			return new ApiResponse<>( ApiResponse.FAILURE, "user is required, got user = " + user, null );
 		}
 
 		Integer userId = null;
@@ -344,11 +345,8 @@ public class UserRestImpl implements UserRest {
 			t.printStackTrace();
 		}
 
-		// TODO: when an email change error has occired let it fall through, we do not care!
 		if( userResp.isFailure() || userResp.getValue() == null ) {
-
 			return new ApiResponse<>( ApiResponse.FAILURE, userResp.getMessage(), null );
-
 		}
 
 		return new ApiResponse<>(ApiResponse.SUCCESS, "",  new UserDTO( userResp.getValue() ) );

@@ -251,29 +251,33 @@ public class UserServiceImpl implements UserService {
 		}
 
 		if( !StringUtils.isEmpty( user.getFirstName() ) && !validName( user.getFirstName() ) ) {
-			return new ValueResponse<User>( ValueResponse.FAILURE, "first name is invalid", null );
+			return new ValueResponse<>( UserError.INVALID_FIRST_NAME );
 		}
 		if( !StringUtils.isEmpty( user.getLastName() ) && !validName( user.getLastName() ) ) {
-			return new ValueResponse<User>( ValueResponse.FAILURE, "last name is invalid", null );
+			return new ValueResponse<>( UserError.INVALID_LAST_NAME );
 		}
 		if( !StringUtils.isEmpty( user.getUsername() ) && !validUsername( user.getUsername() ) ) {
-			return new ValueResponse<User>( UserError.INVALID_USERNAME );
+			return new ValueResponse<>( UserError.INVALID_USERNAME );
 		}
 
 		ValueResponse<User> userResp = getUser( user.getId() );
 
 		if( userResp.isFailure() || userResp.getValue() == null ) {
-			return new ValueResponse<User>( ValueResponse.FAILURE, "user cannot be updated because user does not exist", null );
+			return new ValueResponse<>( UserError.DOES_NOT_EXIST );
 		}
 
 		User savedUser = userResp.getValue();
+		// TODO: review this later
+//		if( !savedUser.getEmail().equals( user.getEmail() ) ) { // do not let user to chaneg emails
+//			return new ValueResponse<>( UserError.EMAIL_CHANGE_NOT_ALLOWED );
+//		}
 		if( !savedUser.getEmail().equals( user.getEmail() ) ) { // do not let user to chaneg emails
-			return new ValueResponse<User>( ValueResponse.FAILURE, "email change is not allowed", null );
+			user.setEmail( savedUser.getEmail() );
 		}
 		user.setPassword( savedUser.getPassword() );
 
 		userDAO.updateUser( user );
-		return new ValueResponse<User>( ValueResponse.SUCCESS, "", user );
+		return new ValueResponse<>( ValueResponse.SUCCESS, "", user );
 	}
 
 	private String generateUsername() {
